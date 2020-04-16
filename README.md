@@ -1,6 +1,6 @@
 # fakeAirBnbServices
 
-> projeto de principais servicos da empresa AirBnb sendo eles App e API
+> projeto de principais serviços da empresa AirBnb sendo eles App e API
 
 [node](https://nodejs.org/en/download/) v10.19.0
 
@@ -10,18 +10,19 @@
 
 [ngrok](https://ngrok.com/download) LTS
 
-Projeto desenvolvido conforme curso da Rocketseat, tem como objetivo mostra o uso de biblitecas react.js, react Native e Adonis.js com o background simulando servisos da empresa AirBnb
+Projeto desenvolvido conforme curso da Rocket Seat, tem como objetivo mostrar o uso de bibliotecas react.js, react Native e Adonis.js com o background simulando serviços da empresa AirBnb
 
 ## instalação
 
-faça clone do projeto em alguma pasta de prefencia ex:. _/documents/projects_
-vericique se as demais dependencias estão instaladas:
+faça clone do projeto em alguma pasta de preferência, exemplo: _/documents/projects_
 
-[x] node >= v10.19.0
+verifique se as demais dependências estão instaladas:
 
-[x] react-native-cli >= v0.62
+- [x] node.js >= v10.19.0
 
-[x] adonis >= v4.1
+- [x] react-native-cli >= v0.62
+
+- [x] adonis.js >= v4.1
 
 ### Clone with SSH
 
@@ -32,12 +33,12 @@ git clone git@github.com:jeffersribeiro/AirBnb_services.git
 ### Clone with HTTPS
 
 ```bash
-- git clone https://github.com/jeffersribeiro/AirBnb_services.git
+git clone https://github.com/jeffersribeiro/AirBnb_services.git
 ```
 
 #### Para o servidor Adonis.js
 
-Entre no seu diretorio do projeto:
+Entre no seu diretório do projeto:
 
 ```bash
 cd ~/documents/projects/AirBnb_services/airbnb-server
@@ -58,13 +59,13 @@ adonis route:list
 
 #### usando ngrok
 
-> o ngrok é como um tunnel sobre as rotas da API ele vai te permitir ter rotas HTTP e HTTPS, as rotas HTTPS são nescessarias para versões novas do Android no react native pois não é permitido por padrão requisisções HTTP.
+> o ngrok é como um tunnel sobre as rotas da API ele vai te permitir ter rotas HTTP e HTTPS, as rotas HTTPS são necessárias para versões novas do Android no react native pois não é permitido por padrão requisições HTTP.
 
 ```bash
 ngrok http 3333
 ```
 
-com isso uma novas rovas rotas serão abertas e a requisição no App sera possivel, as novas rotas seguem um padrão como por
+com isso novas rotas serão abertas e a requisição no App será possível, as novas rotas seguem um padrão como por
 exemplo:
 
 ```bash
@@ -75,7 +76,7 @@ trocando o _/users_ por novos rotas
 
 #### Para o AirBnbApp
 
-Entre no seu diretorio do projeto:
+Entre no seu diretório do projeto:
 
 ```bash
 cd ~/Documents/Projects/AirBnb_services/AirBnbApp
@@ -94,7 +95,7 @@ Jefferson RIbeiro costa - @jeffers.ribeiro - jefferson_ribeiro12345@hotmail.com
 
 https://github.com/jeffersribeiro
 
-## Contribuções
+## Contribuições
 
 1. Faça o fork do projeto (https://github.com/jeffersribeiro/AirBnb_services/fork)
 2. Crie uma branch para sua modificação (git checkout -b feature/fooBar)
