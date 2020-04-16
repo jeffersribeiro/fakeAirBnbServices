@@ -91,7 +91,7 @@ npm install && adb devices && react-native run-android && npm start --reset-cach
 
 ## Meta
 
-Jefferson RIbeiro costa - @jeffers.ribeiro - jefferson_ribeiro12345@hotmail.com
+Jefferson RIbeiro costa - @jeffersribeiro - jefferson_ribeiro12345@hotmail.com
 
 https://github.com/jeffersribeiro
 
