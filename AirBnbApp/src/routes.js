@@ -1,11 +1,11 @@
 import * as React from 'react';
+import {Alert, Button, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import SignIn from './pages/signIn';
 import SignUp from './pages/signUp';
 import Main from './pages/main';
-import ModalExample from '../test';
 
 const Stack = createStackNavigator();
 
@@ -32,9 +32,14 @@ class Routes extends React.Component {
           />
           <Stack.Screen
             options={{
-              title: false,
-              headerTransparent: true,
-              headerTintColor: 'white',
+              headerTitle: props => <View {...props} />,
+              headerRight: () => (
+                <Button
+                  onPress={() => Alert.alert('This is a button!')}
+                  title="Info"
+                  color="#fff"
+                />
+              ),
             }}
             name="Main"
             component={Main}

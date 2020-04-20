@@ -45,10 +45,6 @@ MapboxGL.setAccessToken(
 );
 
 export default class Main extends Component {
-  static navigationOptions = {
-    header: null,
-  };
-
   state = {
     locations: [],
     newRealty: false,
@@ -426,7 +422,7 @@ export default class Main extends Component {
   render() {
     return (
       <Container>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="light-content" backgroundColor="#191a19" />
         <MapboxGL.MapView
           centerCoordinate={[-49.6446024, -27.2108001]}
           style={styles.mapView}

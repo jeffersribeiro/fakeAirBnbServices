@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import {StatusBar, ActivityIndicator} from 'react-native';
-
+import {CommonActions} from '@react-navigation/native';
 import PropTypes from 'prop-types';
-import AsyncStorage from '@react-native-community/async-storage';
-import {StackActions, NavigationActions} from 'react-navigation';
-
 import api from '../../services/api';
 
 import {
@@ -28,9 +25,8 @@ export default class SignUp extends Component {
     username: '',
     email: '',
     password: '',
-    error: '',
+    message: '',
     loading: false,
-    modalVisible: false,
   };
 
   handleUsernameChange = username => {
@@ -48,7 +44,7 @@ export default class SignUp extends Component {
   handleSignInPress = async () => {
     if (this.state.email.length === 0 || this.state.password.length === 0) {
       this.setState(
-        {error: 'Preencha usuário e senha para continuar!'},
+        {message: 'Preencha usuário e senha para continuar!'},
         () => false,
       );
     } else {
@@ -57,20 +53,24 @@ export default class SignUp extends Component {
           loading: true,
         });
         await api.post('/users', {
-          username: this.state.email,
+          username: this.state.username,
           email: this.state.email,
           password: this.state.password,
         });
-
-        const resetAction = StackActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({routeName: 'SignIn'})],
-        });
-        this.props.navigation.dispatch(resetAction);
+        this.props.navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              {
+                name: 'SignIn',
+              },
+            ],
+          }),
+        );
       } catch (_err) {
         this.setState({
           loading: false,
-          error:
+          message:
             'Houve um problema com o Resgistro da conta, verifique suas credenciais!',
         });
       }
@@ -92,8 +92,8 @@ export default class SignUp extends Component {
           placeholder="Password"
           secureTextEntry={true}
         />
-        {this.state.error.length !== 0 && (
-          <ErrorMessage>{this.state.error}</ErrorMessage>
+        {this.state.message.length !== 0 && (
+          <ErrorMessage>{this.state.message}</ErrorMessage>
         )}
         <Button onPress={this.handleSignInPress}>
           {this.state.loading === false ? (

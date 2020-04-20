@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {StatusBar, ActivityIndicator, TouchableOpacity} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import {StackActions, NavigationActions} from 'react-navigation';
-
+import {StatusBar, ActivityIndicator} from 'react-native';
+import {CommonActions} from '@react-navigation/native';
 import api from '../../services/api';
 
 import {
@@ -56,26 +54,29 @@ export default class SignIn extends Component {
         () => false,
       );
     } else {
-      this.setState({
-        loading: true,
-      });
       try {
         const response = await api.post('/sessions', {
           email: this.state.email,
           password: this.state.password,
         });
-        await AsyncStorage.setItem('@AirBnbApp:token', response.data.token);
-
-        const resetAction = StackActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({routeName: 'Main'})],
-        });
-        this.props.navigation.dispatch(resetAction);
-      } catch (_err) {
-        console.warn(_err.message);
         this.setState({
-          error: 'Houve um problema com o login, verifique suas credenciais!',
+          loading: true,
+        });
+        this.props.navigation.dispatch(
+          CommonActions.reset({
+            index: 1,
+            routes: [
+              {
+                name: 'Main',
+                params: response.data.token,
+              },
+            ],
+          }),
+        );
+      } catch (_err) {
+        this.setState({
           loading: false,
+          error: 'Houve um problema com o login, verifique suas credenciais!',
         });
       }
     }
